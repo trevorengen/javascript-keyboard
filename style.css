@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: sans-serif;
+}
+
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-top: 10%;
+}
+
+#keyboard-top {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: black;
+    border-radius: 5px;
+    border-bottom: 0;
+}
+
+.top-section {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 50px;
+}
+
+.inner-top {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.inner-top input, .inner-top label{
+    margin: 10px 5px;
+    color: white;
+}
+
+#wave-grid {
+    display: grid;
+    grid-template-columns: 120px 120px;
+}
+
+#keyboard-bottom {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.white-key {
+    width: 80px;
+    height: 175px;
+    border: 1px solid black;
+    background-color: whitesmoke;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    box-shadow: 5px 2px 5px 2px black;
+    padding-top: 75px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.black-key {
+    width: 40px;
+    height: 100px;
+    background-color: black;
+    margin: 0 -20px;
+    z-index: 2;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.bottom-edge {
+    width: 14px;
+    height: 180px;
+    background-color: black;
+    margin-top: -5px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.val-indicator {
+    color: red;
+    margin: 8px 2px;
+    background-color: grey;
+    padding: 2px 3px;
+    border-radius: 2px;
+}

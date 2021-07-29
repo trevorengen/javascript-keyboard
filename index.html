@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="keyboard.js"></script>
+    <script src="script.js"></script>
+    <script src="waveInfo.js"></script>
+    <title>Keyboard</title>
+</head>
+<body onload="bodyLoad();">
+    <main>
+        <div id="keyboard-top">
+            <div class="top-section">
+                <div class="inner-top">
+                    <p class="val-indicator" id="duration-val">1</p>
+                    <input type="range" id="duration" name="duration"
+                            min="1" max="10" value="1" 
+                            onchange="showValue('duration-val', 'duration')">
+                    <label for="duration">Duration</label>
+                </div>
+                <div class="inner-top">
+                    <p class="val-indicator" id="octave-val">4</p>
+                    <input type="range" id="octave" name="octave"
+                            min="1" max="8" value="4" 
+                            onchange="showValue('octave-val', 'octave')">
+                    <label for="octave">Octave</label>
+                </div>
+                <div class="inner-top">
+                    <input type="checkbox" id="shortcuts" name="shortcuts" 
+                    onchange="keyShortcuts();" checked>
+                    <label for="shortcuts">Enable Shortcuts</label>
+                </div>
+            </div>
+
+            <div class="inner-top" id="wave-grid">
+                <div class="grid-item">
+                    <input type="radio" id="sine" name="waves" value="sine" checked>
+                    <label for="sine">Sine</label>
+                </div>
+                <div class="grid-item">
+                    <input type="radio" id="triangle" name="waves" value="triangle">
+                    <label for="triangle">Triangle</label>
+                </div>
+                <div class="grid-item">
+                    <input type="radio" id="square" name="waves" value="square">
+                    <label for="square">Square</label>
+                </div>
+                <div class="grid-item">
+                    <input type="radio" id="sawtooth" name="waves" value="sawtooth">
+                    <label for="sawtooth">Sawtooth</label>
+                </div>
+                <div class="grid-item">
+                    <input type="radio" id="trombone" name="waves" value="trombone">
+                    <label for="trombone">Trombone</label>
+                </div>
+                <div class="grid-item">
+                    <input type="radio" id="guitar" name="waves" value="guitar">
+                    <label for="guitar">Guitar</label>
+                </div>
+                <div class="grid-item">
+                    <input type="radio" id="bass" name="waves" value="bass">
+                    <label for="bass">Bass</label>
+                </div>
+                <div class="grid-item">
+                    <input type="radio" id="fuzzGuitar" name="waves" value="fuzzGuitar">
+                    <label for="fuzzGuitar">Fuzz Guitar</label>
+                </div>
+            </div>
+        </div>
+
+        <div id="keyboard-bottom">
+            <div class="bottom-edge" id="edge-left"></div>
+            <button class="white-key"></button>
+            <button class="black-key"></button>
+            <button class="white-key"></button>
+            <button class="black-key"></button>
+            <button class="white-key"></button>
+            <button class="white-key"></button>
+            <button class="black-key"></button>
+            <button class="white-key"></button>
+            <button class="black-key"></button>
+            <button class="white-key"></button>
+            <button class="black-key"></button>
+            <button class="white-key"></button>
+            <div class="bottom-edge" id="edge-right"></div>
+        </div>
+    </main>
+</body>
+</html>

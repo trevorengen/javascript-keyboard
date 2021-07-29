@@ -1,0 +1,7 @@
+function showValue(elemIdToChange, elemIdWithValue) {
+    document.getElementById(elemIdToChange).innerText = document.getElementById(elemIdWithValue).value;
+}
+
+function bodyLoad() {
+    keyShortcuts();
+}
