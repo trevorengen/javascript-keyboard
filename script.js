@@ -4,4 +4,7 @@ function showValue(elemIdToChange, elemIdWithValue) {
 
 function bodyLoad() {
     keyShortcuts();
+    loadSettings();
+    showValue('duration-val', 'duration');
+    showValue('octave-val', 'octave');
 }

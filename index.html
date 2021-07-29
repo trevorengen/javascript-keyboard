@@ -18,14 +18,16 @@
                     <p class="val-indicator" id="duration-val">1</p>
                     <input type="range" id="duration" name="duration"
                             min="1" max="10" value="1" 
-                            onchange="showValue('duration-val', 'duration')">
+                            onchange="showValue('duration-val', 'duration')"
+                            onchange="saveSettings();">
                     <label for="duration">Duration</label>
                 </div>
                 <div class="inner-top">
                     <p class="val-indicator" id="octave-val">4</p>
                     <input type="range" id="octave" name="octave"
                             min="1" max="8" value="4" 
-                            onchange="showValue('octave-val', 'octave')">
+                            onchange="showValue('octave-val', 'octave')"
+                            onchange="saveSettings();">
                     <label for="octave">Octave</label>
                 </div>
                 <div class="inner-top">
@@ -37,35 +39,35 @@
 
             <div class="inner-top" id="wave-grid">
                 <div class="grid-item">
-                    <input type="radio" id="sine" name="waves" value="sine" checked>
+                    <input type="radio" id="sine" name="waves" value="sine" onchange="saveSettings();" checked>
                     <label for="sine">Sine</label>
                 </div>
                 <div class="grid-item">
-                    <input type="radio" id="triangle" name="waves" value="triangle">
+                    <input type="radio" id="triangle" name="waves" value="triangle" onchange="saveSettings();">
                     <label for="triangle">Triangle</label>
                 </div>
                 <div class="grid-item">
-                    <input type="radio" id="square" name="waves" value="square">
+                    <input type="radio" id="square" name="waves" value="square" onchange="saveSettings();">
                     <label for="square">Square</label>
                 </div>
                 <div class="grid-item">
-                    <input type="radio" id="sawtooth" name="waves" value="sawtooth">
+                    <input type="radio" id="sawtooth" name="waves" value="sawtooth" onchange="saveSettings();">
                     <label for="sawtooth">Sawtooth</label>
                 </div>
                 <div class="grid-item">
-                    <input type="radio" id="trombone" name="waves" value="trombone">
+                    <input type="radio" id="trombone" name="waves" value="trombone" onchange="saveSettings();">
                     <label for="trombone">Trombone</label>
                 </div>
                 <div class="grid-item">
-                    <input type="radio" id="guitar" name="waves" value="guitar">
+                    <input type="radio" id="guitar" name="waves" value="guitar" onchange="saveSettings();">
                     <label for="guitar">Guitar</label>
                 </div>
                 <div class="grid-item">
-                    <input type="radio" id="bass" name="waves" value="bass">
+                    <input type="radio" id="bass" name="waves" value="bass" onchange="saveSettings();">
                     <label for="bass">Bass</label>
                 </div>
                 <div class="grid-item">
-                    <input type="radio" id="fuzzGuitar" name="waves" value="fuzzGuitar">
+                    <input type="radio" id="fuzzGuitar" name="waves" value="fuzzGuitar" onchange="saveSettings();">
                     <label for="fuzzGuitar">Fuzz Guitar</label>
                 </div>
             </div>

@@ -204,7 +204,7 @@ function saveSettings() {
     for (let i=0; i < toSave.length; i++) {
         localStorage.setItem(toSave[i], document.getElementById(toSave[i]).value);
     }
-    localStorage.setItem('wave', document.querySelector('input[name="wave"]:checked').value);
+    localStorage.setItem('waves', document.querySelector('input[name="waves"]:checked').value);
 }
 
 // This loads all of the previous user settings from localStorage.
@@ -212,12 +212,5 @@ function loadSettings() {
     for (let i=0; i<toSave.length; i++) {
         document.getElementById(toSave[i]).value = localStorage.getItem(toSave[i]);
     }
-    document.getElementById(localStorage.getItem('wave')).checked = true;
-}
-
-// Put all functions that need to be loaded in the body's onload event
-// into this.
-function bodyLoad() {
-    loadSettings();
-    keyShortcuts();
+    document.getElementById(localStorage.getItem('waves')).checked = true;
 }
