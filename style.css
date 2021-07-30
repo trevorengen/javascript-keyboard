@@ -215,7 +215,7 @@ input[type="range"]::-moz-range-thumb {
 
 .note {
     background-color: black;
-    height: 20px;
+    height: 10px;
     min-width: 10px;
     display: inline-block;
     border: 1px solid red;
