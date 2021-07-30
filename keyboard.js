@@ -71,48 +71,43 @@ function createNote(note) {
 
 // Playback function for the songArray.
 function playback() {
-    let time = 0;
-    let tempArray = [];
-    while(songArray.length != 0) {
-        console.log('Time: ' + songArray[0][0] + '\nFrequency: ' + songArray[0][1] + '\nDuration: ' + songArray[0][2]
-                    + '\nWave: ' + songArray[0][3]);
-        setTimeout(function(){
-            var o = context.createOscillator();
-            var g = context.createGain();   
-            let curWave = songArray[0][3];
-            if(curWave == 'triangle' || curWave == 'square' || curWave == 'sawtooth' || curWave == 'sine') {
-                o.type = curWave;
-            } else {
-                // This just saves a bunch of typing.
-                function waveMaker(selection) {
-                    const createdWave = context.createPeriodicWave(selection.real, selection.imag, {disableNormalization: true});
-                    o.setPeriodicWave(createdWave);
-                }
-                switch(curWave) {
-                    case 'trombone':
-                        waveMaker(trombone);
-                        break;
-                    case 'bass':
-                        waveMaker(bass);
-                        break;
-                    case 'guitar':
-                        waveMaker(guitar);
-                        break;
-                    case 'fuzzGuitar':
-                        waveMaker(fuzzGuitar);
-                        break;
-                }
+    setTimeout(function(){
+        var o = context.createOscillator();
+        var g = context.createGain();   
+        var curWave = songArray[0][3];
+        if(curWave == 'triangle' || curWave == 'square' || curWave == 'sawtooth' || curWave == 'sine') {
+            o.type = curWave;
+        } else {
+            // This just saves a bunch of typing.
+            function waveMaker(selection) {
+                const createdWave = context.createPeriodicWave(selection.real, selection.imag, {disableNormalization: true});
+                o.setPeriodicWave(createdWave);
             }
-            o.frequency.value = parseFloat(songArray[0][1]) * parseFloat(songArray[0][4]);
-            o.connect(g);
-            g.connect(context.destination);
-            o.start(0);
-            g.gain.exponentialRampToValueAtTime(.000000001, (context.currentTime + parseFloat(songArray[0][2])));
-        }, parseFloat(songArray[0][0]));
-        time = parseFloat(songArray[0][0]);
-        tempArray.push(songArray.shift());
-    }
-    songArray = tempArray;
+            switch(curWave) {
+                case 'trombone':
+                    waveMaker(trombone);
+                    break;
+                case 'bass':
+                    waveMaker(bass);
+                    break;
+                case 'guitar':
+                    waveMaker(guitar);
+                    break;
+                case 'fuzzGuitar':
+                    waveMaker(fuzzGuitar);
+                    break;
+            }
+        }
+        o.frequency.value = parseFloat(songArray[0][1]) * parseFloat(songArray[0][4]);
+        o.connect(g);
+        g.connect(context.destination);
+        o.start(0);
+        g.gain.exponentialRampToValueAtTime(.000000001, (context.currentTime + parseFloat(songArray[0][2])));
+        songArray.shift();
+        if(songArray.length > 0){
+            playback();
+        }
+    }, parseFloat(songArray[0][0]));
 }
 
 // Function to begin recording note inputs.
