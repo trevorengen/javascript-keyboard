@@ -14,6 +14,7 @@ let octave = {
     '7' : 6,
     '8' : 8
 }
+
 // Creating audio context. Only ever create one instance of this
 // otherwise the keyboard will stop working after some time.
 var context = new AudioContext({latencyHint:'interactive', 
