@@ -49,21 +49,25 @@ function displayNotes(song) {
     }
     // Loops through the song array and adds a div for each note.
     for(i=0; i<song.length; i++){
-        songArea.innerHTML += '<div class="note" id="note' + i + '"></div>';
+        songArea.innerHTML += '<div class="note" id="note' + i + '" draggable="true"></div>';
         var currNote = document.getElementById('note' + String(i));
         var noteWidth = song[i][2] * 20;
         currNote.style.width = String(noteWidth) + 'px';
-
         var xPos = String(song[i][0] / 20);
 
-        // yPos is the frequency of the note divided by the octave and then
-        // subtracted by the LOWEST note currently available. To reverse this later
-        // the function will be the given yPos * octave - lowestFreq
-        // lowestFreq is C4 multiplied by the octave ALWAYS.
+        // yPos is the frequency of the note subtracted by C4. Octaves
+        // not taken into account here but a good thing to add in the future.
+        // TODO: Add something to handle different octaves (maybe different colors?)
         console.log(song[i][4]);
-        var yPos = String((song[i][1] / song[i][4]) - 261.3);
+        var yPos = String((song[i][1]) - 261.3);
         console.log(yPos);
         currNote.style.left = xPos + 'px';
         currNote.style.top = yPos + 'px';
     }
+}
+
+// savedArrays[document.getElementById('saved-red').selectedIndex]
+function alterNote(elem){
+    var selectedSong = savedArrays[document.getElementById('saved-red').selectedIndex];
+    var selectedNote = parseInt(elem.id);
 }

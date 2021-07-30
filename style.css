@@ -220,4 +220,5 @@ input[type="range"]::-moz-range-thumb {
     display: inline-block;
     border: 1px solid red;
     position:relative;
+    cursor: move;
 }
