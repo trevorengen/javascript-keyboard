@@ -70,6 +70,7 @@ function createNote(note) {
 }
 
 // Playback function for the songArray.
+var time = 0;
 function playback() {
     setTimeout(function(){
         var o = context.createOscillator();
@@ -103,11 +104,12 @@ function playback() {
         g.connect(context.destination);
         o.start(0);
         g.gain.exponentialRampToValueAtTime(.000000001, (context.currentTime + parseFloat(songArray[0][2])));
+        time = parseFloat(songArray[0][0]);
         songArray.shift();
         if(songArray.length > 0){
             playback();
         }
-    }, parseFloat(songArray[0][0]));
+    }, parseFloat(songArray[0][0]) - time);
 }
 
 // Function to begin recording note inputs.
