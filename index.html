@@ -20,7 +20,7 @@
                             min="1" max="10" value="1" 
                             oninput="showValue('duration-val', 'duration')
                                     saveSettings();">
-                    <label for="duration">Duration</label>
+                    <label for="duration">DURATION</label>
                 </div>
                 <div class="inner-top">
                     <p class="val-indicator" id="octave-val">4</p>
@@ -29,9 +29,10 @@
                             oninput="showValue('octave-val', 'octave')
                                      saveSettings();"
                             >
-                    <label for="octave">Octave</label>
+                    <label for="octave">OCTAVE</label>
                 </div>
                 <div class="inner-top">
+                    <button id="rename" onclick="renameSong();">RENAME</button>
                     <select name="songs" id="savedSongs">
                     </select>
                     <button class="small-grey-button" id="recording" onclick="startOrEndRecording();">
@@ -47,35 +48,35 @@
             <div class="inner-top" id="wave-grid">
                 <div class="grid-item">
                     <input type="radio" id="sine" name="waves" value="sine" onchange="saveSettings();" checked>
-                    <label for="sine">Sine</label>
+                    <label for="sine">SINE</label>
                 </div>
                 <div class="grid-item">
                     <input type="radio" id="triangle" name="waves" value="triangle" onchange="saveSettings();">
-                    <label for="triangle">Triangle</label>
+                    <label for="triangle">TRIANGLE</label>
                 </div>
                 <div class="grid-item">
                     <input type="radio" id="square" name="waves" value="square" onchange="saveSettings();">
-                    <label for="square">Square</label>
+                    <label for="square">SQUARE</label>
                 </div>
                 <div class="grid-item">
                     <input type="radio" id="sawtooth" name="waves" value="sawtooth" onchange="saveSettings();">
-                    <label for="sawtooth">Sawtooth</label>
+                    <label for="sawtooth">SAWTOOTH</label>
                 </div>
                 <div class="grid-item">
                     <input type="radio" id="trombone" name="waves" value="trombone" onchange="saveSettings();">
-                    <label for="trombone">Trombone</label>
+                    <label for="trombone">TROMBONE</label>
                 </div>
                 <div class="grid-item">
                     <input type="radio" id="guitar" name="waves" value="guitar" onchange="saveSettings();">
-                    <label for="guitar">Guitar</label>
+                    <label for="guitar">GUITAR</label>
                 </div>
                 <div class="grid-item">
                     <input type="radio" id="bass" name="waves" value="bass" onchange="saveSettings();">
-                    <label for="bass">Bass</label>
+                    <label for="bass">BASS</label>
                 </div>
                 <div class="grid-item">
                     <input type="radio" id="fuzzGuitar" name="waves" value="fuzzGuitar" onchange="saveSettings();">
-                    <label for="fuzzGuitar">Fuzz Guitar</label>
+                    <label for="fuzzGuitar">FUZZ GUITAR</label>
                 </div>
             </div>
         </div>

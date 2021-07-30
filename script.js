@@ -32,3 +32,10 @@ function loadSettings() {
     }
     document.getElementById(localStorage.getItem('waves')).checked = true;
 }
+
+// Small popup window for rename event.
+function renameSong() {
+    let songName = window.prompt('Enter song name', 'My Cool Song');
+    let songSelect = document.getElementById('savedSongs');
+    songSelect.options[songSelect.selectedIndex].text = songName;
+}

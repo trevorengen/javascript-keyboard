@@ -47,7 +47,7 @@ main {
 
 #wave-grid {
     display: grid;
-    grid-template-columns: 130px 150px;
+    grid-template-columns: 150px 170px;
 }
 
 #keyboard-bottom {
@@ -134,3 +134,47 @@ main {
     background: rgb(77, 77, 77);
     color: rgb(255, 0, 0);
 }
+
+#rename {
+    width: 80px;
+    height: 25px;
+    border: 3px outset rgb(126, 126, 126);
+    background: rgb(170, 170, 170);
+    margin-right: 10px;
+    color: black;
+}
+
+#rename:hover:active {
+    background-color: rgb(131, 131, 131);
+    border: 3px inset rgb(85, 85, 85);
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    height: 5px;
+    background: #000;
+    outline: none;
+    border: 5px solid lawngreen;
+    border-radius: 8px;
+    margin-right: auto;
+  }
+  
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 25px;
+    background: #000;
+    cursor: pointer;
+    border: 5px solid lawngreen;
+    border-radius: 2px;
+  }
+  
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 60px;
+    background: #000;
+    cursor: pointer;
+    border: 5px solid lawngreen;
+    border-radius: 4px;
+  }
