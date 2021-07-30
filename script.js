@@ -42,15 +42,26 @@ function renameSong() {
 
 // Displays notes in the selected playback area.
 function displayNotes(song) {
-    console.log(song);
+    var songArea = document.getElementById('red-song')
+    // Clearing notes from the area so they don't overlap each other.
+    while(songArea.firstChild !== null){
+        songArea.removeChild(songArea.firstChild);
+    }
+    // Loops through the song array and adds a div for each note.
     for(i=0; i<song.length; i++){
-        
-        document.getElementById('red-song').innerHTML += '<div class="note" id="note' + i + '"></div>';
+        songArea.innerHTML += '<div class="note" id="note' + i + '"></div>';
         var currNote = document.getElementById('note' + String(i));
         var noteWidth = song[i][2] * 20;
         currNote.style.width = String(noteWidth) + 'px';
 
         var xPos = String(song[i][0] / 20);
+
+        // yPos is the frequency of the note divided by the octave and then
+        // subtracted by the LOWEST note currently available. To reverse this later
+        // the function will be the given yPos * octave - lowestFreq
+        var yPos = String((song[i][1] / song[i][4]) - 261.63);
+        console.log(yPos);
         currNote.style.left = xPos + 'px';
+        currNote.style.top = yPos + 'px';
     }
 }

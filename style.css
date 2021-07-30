@@ -181,7 +181,7 @@ input[type="range"]::-moz-range-thumb {
 
 .recording {
     width: 800px;
-    height: 232.25px;
+    height: 419.62px;
     display: flex;
     flex-flow: row nowrap;
 }
@@ -214,8 +214,8 @@ input[type="range"]::-moz-range-thumb {
 .note {
     background-color: black;
     height: 20px;
-    width: 100px;
-    display: block;
+    min-width: 10px;
+    display: inline-block;
     border: 1px solid red;
     position:relative;
 }

@@ -16,16 +16,15 @@
             <div class="options">
                 <span id=song-select-pack>
                     <label for="saved-red">SONGS</label>
-                    <select class="song-selector" name="song" id="saved-red"></select>
+                    <select class="song-selector" name="song" id="saved-red"
+                            onchange="displayNotes(savedArrays[document.getElementById('saved-red').selectedIndex]);"></select>
                 </span>
                 <button class="small-grey-button" id="play" 
                 onclick="playback(savedArrays[document.getElementById('saved-red').selectedIndex], 'play-triangle-2');">
                 <span class="blue-triangle" id="play-triangle-2"></span>
                 </button>
             </div>
-            <div class="recorded-song" id="red-song">
-                
-            </div>
+            <div class="recorded-song" id="red-song"></div>
         </div>
         <div id="keyboard-top">
             <div class="top-section">
