@@ -15,25 +15,24 @@
         <div id="keyboard-top">
             <div class="top-section">
                 <div class="inner-top">
-                    <p class="val-indicator" id="duration-val">1</p>
+                    <p class="val-indicator" id="duration-val" >1</p>
                     <input type="range" id="duration" name="duration"
                             min="1" max="10" value="1" 
-                            onchange="showValue('duration-val', 'duration')"
-                            onchange="saveSettings();">
+                            oninput="showValue('duration-val', 'duration')
+                                    saveSettings();">
                     <label for="duration">Duration</label>
                 </div>
                 <div class="inner-top">
                     <p class="val-indicator" id="octave-val">4</p>
                     <input type="range" id="octave" name="octave"
                             min="1" max="8" value="4" 
-                            onchange="showValue('octave-val', 'octave')"
-                            onchange="saveSettings();"
+                            oninput="showValue('octave-val', 'octave')
+                                     saveSettings();"
                             >
                     <label for="octave">Octave</label>
                 </div>
                 <div class="inner-top">
                     <select name="songs" id="savedSongs">
-                        
                     </select>
                     <button class="small-grey-button" id="recording" onclick="startOrEndRecording();">
                         <span id="red-circle"></span>

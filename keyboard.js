@@ -152,13 +152,16 @@ function startOrEndRecording() {
         document.getElementById('red-circle').style.backgroundColor = 'red';
     } else {
         currentlyRecording = false;
-        document.getElementById('red-circle').style.backgroundColor = 'rgb(110, 0, 0)';
-        savedArrays.push(songArray);
-        let opt = document.createElement('option');
-        opt.value = savedArrays.length;
-        opt.innerHTML = savedArrays.length;
-        document.getElementById('savedSongs').appendChild(opt);
-        return songArray;
+        // Only save if there was at least one note played.
+        if(songArray.length != 0){
+            document.getElementById('red-circle').style.backgroundColor = 'rgb(110, 0, 0)';
+            savedArrays.push(songArray);
+            let opt = document.createElement('option');
+            opt.value = savedArrays.length;
+            opt.innerHTML = savedArrays.length;
+            document.getElementById('savedSongs').appendChild(opt);
+            return songArray;
+        }
     }
 }
 
@@ -286,23 +289,4 @@ function keyShortcuts () {
         }
     }
     
-}
-
-// An array of the names of the ids that are to be saved to localStorage.
-var toSave = ['duration', 'octave']
-
-// This saves all of the user settings on the keyboard.
-function saveSettings() {
-    for (let i=0; i < toSave.length; i++) {
-        localStorage.setItem(toSave[i], document.getElementById(toSave[i]).value);
-    }
-    localStorage.setItem('waves', document.querySelector('input[name="waves"]:checked').value);
-}
-
-// This loads all of the previous user settings from localStorage.
-function loadSettings() {
-    for (let i=0; i<toSave.length; i++) {
-        document.getElementById(toSave[i]).value = localStorage.getItem(toSave[i]);
-    }
-    document.getElementById(localStorage.getItem('waves')).checked = true;
 }
