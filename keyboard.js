@@ -73,7 +73,9 @@ function createNote(note) {
 var time = 0;
 function playback() {
     document.getElementById('play-triangle').style.borderColor = 'transparent transparent transparent rgb(52, 235, 232)';
-    setTimeout(function(){
+    setTimeout(function()/* TODO: Restructure note() so that this can all be deleted. Just need to add parameters to note
+                            for all input settings (duration, wave form, octave, and frequency) and just pass them
+                            where they are required instead of reading the inputs inside of the function. */{
         var o = context.createOscillator();
         var g = context.createGain();   
         var curWave = songArray[0][3];
@@ -119,9 +121,28 @@ function playback() {
 var currentlyRecording = false;
 function startOrEndRecording() {
     if (!currentlyRecording) {
-        songArray = []
+        songArray = [];
         startTime = new Date();
         currentlyRecording = true;
+        let redOn = true
+        // Recursive function used to keep blinking the recording light so
+        // long as it is recording.
+        var tempFunc = function(){
+            setTimeout(function(){
+                if(currentlyRecording){
+                    if(redOn){
+                        document.getElementById('red-circle').style.backgroundColor = 'rgb(110, 0, 0)';
+                        redOn = false;
+                        tempFunc();
+                    } else {
+                        document.getElementById('red-circle').style.backgroundColor = 'red';
+                        redOn = true;
+                        tempFunc();
+                    }
+                }
+            }, 300);
+        }
+        tempFunc();
         document.getElementById('red-circle').style.backgroundColor = 'red';
     } else {
         currentlyRecording = false;

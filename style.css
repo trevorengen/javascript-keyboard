@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: sans-serif;
+    font-family: 'Orbitron', sans-serif;
 }
 
 main {
@@ -18,6 +20,10 @@ main {
     background-color: black;
     border-radius: 5px;
     border-bottom: 0;
+    width: 810px;
+    margin-bottom: -10px;
+    z-index: 3;
+    box-shadow: 3px 3px 2px 3px black;
 }
 
 .top-section {
@@ -41,7 +47,7 @@ main {
 
 #wave-grid {
     display: grid;
-    grid-template-columns: 120px 120px;
+    grid-template-columns: 130px 150px;
 }
 
 #keyboard-bottom {
@@ -56,7 +62,7 @@ main {
     background-color: whitesmoke;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-    box-shadow: 5px 2px 5px 2px black;
+    box-shadow: 3px 5px 5px 3px black;
     padding-top: 75px;
     font-weight: 600;
     font-size: 20px;
@@ -75,15 +81,6 @@ main {
     font-size: 20px;
 }
 
-.bottom-edge {
-    width: 14px;
-    height: 180px;
-    background-color: black;
-    margin-top: -5px;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-}
-
 .val-indicator {
     color: red;
     margin: 8px 2px;
@@ -96,12 +93,14 @@ main {
     width: 30px;
     height: 30px;
     margin-left: 15px;
-    background-color: grey;
+    background-color: rgb(180, 180, 180);
     border-radius: 3px;
+    border: 3px outset rgb(85, 85, 85);
 }
 
 .small-grey-button:hover:active {
-    background-color: rgb(82, 82, 82);
+    background-color: rgb(131, 131, 131);
+    border: 3px inset rgb(85, 85, 85);
 }
 
 #red-circle {
@@ -123,3 +122,4 @@ main {
     display: block;
     margin: auto auto;
 }
+
