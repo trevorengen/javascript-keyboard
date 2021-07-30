@@ -100,6 +100,10 @@ main {
     border-radius: 3px;
 }
 
+.small-grey-button:hover:active {
+    background-color: rgb(82, 82, 82);
+}
+
 #red-circle {
     background-color: rgb(110, 0, 0);
     display: block;
