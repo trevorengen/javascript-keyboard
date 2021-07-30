@@ -199,6 +199,8 @@ input[type="range"]::-moz-range-thumb {
     background-color: rgba(255, 0, 0, .4);
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 #song-select-pack {

@@ -59,7 +59,9 @@ function displayNotes(song) {
         // yPos is the frequency of the note divided by the octave and then
         // subtracted by the LOWEST note currently available. To reverse this later
         // the function will be the given yPos * octave - lowestFreq
-        var yPos = String((song[i][1] / song[i][4]) - 261.63);
+        // lowestFreq is C4 multiplied by the octave ALWAYS.
+        console.log(song[i][4]);
+        var yPos = String((song[i][1] / song[i][4]) - 261.3);
         console.log(yPos);
         currNote.style.left = xPos + 'px';
         currNote.style.top = yPos + 'px';
