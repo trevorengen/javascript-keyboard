@@ -96,9 +96,9 @@ main {
     width: 30px;
     height: 30px;
     margin-left: 15px;
-    background-color: rgb(180, 180, 180);
     border-radius: 3px;
-    border: 3px outset rgb(85, 85, 85);
+    border: 3px outset rgb(59, 59, 59);
+    background: rgb(77, 77, 77);
 }
 
 .small-grey-button:hover:active {
@@ -126,3 +126,11 @@ main {
     margin: auto auto;
 }
 
+#savedSongs {
+    width: 100px;
+    height: 25px;
+    margin-left: 2px;
+    border: 3px inset rgb(59, 59, 59);
+    background: rgb(77, 77, 77);
+    color: rgb(255, 0, 0);
+}
