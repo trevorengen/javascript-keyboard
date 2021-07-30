@@ -39,3 +39,20 @@ function renameSong() {
     let songSelect = document.getElementById('savedSongs');
     songSelect.options[songSelect.selectedIndex].text = songName;
 }
+
+// Displays notes in the selected playback area.
+function displayNotes(song) {
+    console.log(song);
+    for(i=0; i<song.length; i++){
+        
+        document.getElementById('red-song').innerHTML += '<div class="note" id="note' + i + '"></div>';
+        let currNote = document.getElementById('note' + i);
+        console.log(currNote);
+        let noteWidth = toString(song[i][2] /100);
+        console.log(noteWidth);
+        currNote.style.width = noteWidth;
+
+        let xPos = toString(song[i][0] / 50);
+        currNote.style.left = xPos;
+    }
+}

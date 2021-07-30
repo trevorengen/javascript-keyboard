@@ -11,7 +11,7 @@ main {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 100px;
 }
 
 #keyboard-top {
@@ -116,7 +116,7 @@ main {
     z-index: 1;
 }
 
-#play-triangle {
+.blue-triangle {
     width: 0;
     height: 0;
     border-style: solid;
@@ -126,7 +126,7 @@ main {
     margin: auto auto;
 }
 
-#savedSongs {
+.song-selector {
     width: 100px;
     height: 25px;
     margin-left: 2px;
@@ -157,8 +157,8 @@ input[type="range"] {
     border: 5px solid lawngreen;
     border-radius: 8px;
     margin-right: auto;
-  }
-  
+}
+
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -168,8 +168,8 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
     border: 5px solid lawngreen;
     border-radius: 2px;
-  }
-  
+}
+
 input[type="range"]::-moz-range-thumb {
     width: 20px;
     height: 60px;
@@ -177,4 +177,43 @@ input[type="range"]::-moz-range-thumb {
     cursor: pointer;
     border: 5px solid lawngreen;
     border-radius: 4px;
-  }
+}
+
+.recording {
+    width: 800px;
+    height: 232.25px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.options {
+    flex: 1;
+    border-right: 3px solid black;
+    background-color: rgba(255, 0, 0, .7);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.recorded-song {
+    flex: 3;
+    background-color: rgba(255, 0, 0, .4);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#song-select-pack {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#saved-red {
+    margin-left: 10px;
+}
+
+.note {
+    background-color: black;
+    height: 20px;
+    display: block;
+    border: 1px solid red;
+}

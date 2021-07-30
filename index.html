@@ -12,6 +12,21 @@
 </head>
 <body onload="bodyLoad();">
     <main>
+        <div class="recording">
+            <div class="options">
+                <span id=song-select-pack>
+                    <label for="saved-red">SONGS</label>
+                    <select class="song-selector" name="song" id="saved-red"></select>
+                </span>
+                <button class="small-grey-button" id="play" 
+                onclick="playback(savedArrays[document.getElementById('saved-red').selectedIndex], 'play-triangle-2');">
+                <span class="blue-triangle" id="play-triangle-2"></span>
+                </button>
+            </div>
+            <div class="recorded-song" id="red-song">
+                
+            </div>
+        </div>
         <div id="keyboard-top">
             <div class="top-section">
                 <div class="inner-top">
@@ -33,14 +48,14 @@
                 </div>
                 <div class="inner-top">
                     <button id="rename" onclick="renameSong();">RENAME</button>
-                    <select name="songs" id="savedSongs">
+                    <select name="songs" class="song-selector" id="savedSongs">
                     </select>
                     <button class="small-grey-button" id="recording" onclick="startOrEndRecording();">
                         <span id="red-circle"></span>
                     </button>
                     <button class="small-grey-button" id="play" 
-                            onclick="playback(savedArrays[document.getElementById('savedSongs').selectedIndex]);">
-                        <span id="play-triangle"></span>
+                            onclick="playback(savedArrays[document.getElementById('savedSongs').selectedIndex], 'play-triangle');">
+                        <span class="blue-triangle" id="play-triangle"></span>
                     </button>
                 </div>
             </div>

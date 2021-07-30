@@ -76,8 +76,8 @@ var savedArrays = [];
 // Increments the x-axis array. Original fix was a queue but since it was removing the element
 // the save file was deleted. Variable 'n' is chosen to save typing.
 var n = 0;
-function playback(currSong) {
-    document.getElementById('play-triangle').style.borderColor = 'transparent transparent transparent rgb(52, 235, 232)';
+function playback(currSong, elemId) {
+    document.getElementById(elemId).style.borderColor = 'transparent transparent transparent rgb(52, 235, 232)';
     setTimeout(function()/* TODO: Restructure note() so that this can all be deleted. Just need to add parameters to note
                             for all input settings (duration, wave form, octave, and frequency) and just pass them
                             where they are required instead of reading the inputs inside of the function. */{
@@ -115,9 +115,9 @@ function playback(currSong) {
         time = parseFloat(currSong[n][0]);
         if(n < currSong.length-1){
             n++;
-            playback(currSong);
+            playback(currSong, elemId);
         } else {
-            document.getElementById('play-triangle').style.borderColor = 'transparent transparent transparent navy';
+            document.getElementById(elemId).style.borderColor = 'transparent transparent transparent navy';
             n = 0;
         }
     }, parseFloat(currSong[n][0]) - time);
@@ -153,13 +153,18 @@ function startOrEndRecording() {
     } else {
         currentlyRecording = false;
         // Only save if there was at least one note played.
+        document.getElementById('red-circle').style.backgroundColor = 'rgb(110, 0, 0)';
         if(songArray.length != 0){
-            document.getElementById('red-circle').style.backgroundColor = 'rgb(110, 0, 0)';
             savedArrays.push(songArray);
             let opt = document.createElement('option');
+            let opt2 = document.createElement('option');
             opt.value = savedArrays.length;
             opt.innerHTML = savedArrays.length;
-            document.getElementById('savedSongs').appendChild(opt);
+            opt2.value = savedArrays.length;
+            opt2.innerHTML = savedArrays.length;
+            document.getElementById('saved-red').appendChild(opt);
+            document.getElementById('savedSongs').appendChild(opt2);
+            displayNotes(songArray);
             return songArray;
         }
     }
