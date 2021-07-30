@@ -23,7 +23,7 @@ main {
 .top-section {
     display: flex;
     flex-flow: column nowrap;
-    padding: 0 50px;
+    padding: 0 45px;
 }
 
 .inner-top {
@@ -90,4 +90,32 @@ main {
     background-color: grey;
     padding: 2px 3px;
     border-radius: 2px;
+}
+
+.small-grey-button {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    background-color: grey;
+    border-radius: 3px;
+}
+
+#red-circle {
+    background-color: rgb(110, 0, 0);
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: auto auto;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+#play-triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 15px;
+    border-color: transparent transparent transparent navy;
+    display: block;
+    margin: auto auto;
 }

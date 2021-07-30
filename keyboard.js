@@ -19,6 +19,11 @@ let octave = {
 var context = new AudioContext({latencyHint:'interactive', 
                     sampleRate:44800});
 
+// Array to store notes in for playback and creating the variable
+// to store timing for note playback.
+var songArray = [];
+var startTime = null;
+
 // Used to create a note whenever the user presses one of the keys
 // on the page.
 function createNote(note) {
@@ -58,23 +63,79 @@ function createNote(note) {
     g.connect(context.destination);
     o.start(0);
     g.gain.exponentialRampToValueAtTime(.000000001, (context.currentTime + duration));
+
+    if(currentlyRecording){
+        songArray.push(noteToArray(note, duration, curWave, octave[document.getElementById('octave').value]));
+    }
+}
+
+// Playback function for the songArray.
+function playback() {
+    let time = 0;
+    let tempArray = [];
+    while(songArray.length != 0) {
+        console.log('Time: ' + songArray[0][0] + '\nFrequency: ' + songArray[0][1] + '\nDuration: ' + songArray[0][2]
+                    + '\nWave: ' + songArray[0][3]);
+        setTimeout(function(){
+            var o = context.createOscillator();
+            var g = context.createGain();   
+            let curWave = songArray[0][3];
+            if(curWave == 'triangle' || curWave == 'square' || curWave == 'sawtooth' || curWave == 'sine') {
+                o.type = curWave;
+            } else {
+                // This just saves a bunch of typing.
+                function waveMaker(selection) {
+                    const createdWave = context.createPeriodicWave(selection.real, selection.imag, {disableNormalization: true});
+                    o.setPeriodicWave(createdWave);
+                }
+                switch(curWave) {
+                    case 'trombone':
+                        waveMaker(trombone);
+                        break;
+                    case 'bass':
+                        waveMaker(bass);
+                        break;
+                    case 'guitar':
+                        waveMaker(guitar);
+                        break;
+                    case 'fuzzGuitar':
+                        waveMaker(fuzzGuitar);
+                        break;
+                }
+            }
+            o.frequency.value = parseFloat(songArray[0][1]) * parseFloat(songArray[0][4]);
+            o.connect(g);
+            g.connect(context.destination);
+            o.start(0);
+            g.gain.exponentialRampToValueAtTime(.000000001, (context.currentTime + parseFloat(songArray[0][2])));
+        }, parseFloat(songArray[0][0]));
+        time = parseFloat(songArray[0][0]);
+        tempArray.push(songArray.shift());
+    }
+    songArray = tempArray;
 }
 
 // Function to begin recording note inputs.
 var currentlyRecording = false;
 function startOrEndRecording() {
-    if (currentlyRecording == true) {
-        var startTime = new Date();
+    if (!currentlyRecording) {
+        songArray = []
+        startTime = new Date();
         currentlyRecording = true;
-        return startTime;
+        document.getElementById('red-circle').style.backgroundColor = 'red';
     } else {
         currentlyRecording = false;
+        document.getElementById('red-circle').style.backgroundColor = 'rgb(110, 0, 0)';
+        console.log(songArray);
+        return songArray;
     }
 }
 
-function noteToArray(freq, duration, waveForm) {
+// Saves the note being played into an array for later playback.
+function noteToArray(freq, duration, waveForm, octave) {
     noteTime = new Date() - startTime; 
-    noteArray = [noteTime, freq, duration, waveForm];
+    noteArray = [noteTime, freq, duration, waveForm, octave];
+    return noteArray;
 }
 
 // This makes it so that when enabled you are able to use your
