@@ -72,6 +72,7 @@ function createNote(note) {
 // Playback function for the songArray.
 var time = 0;
 function playback() {
+    document.getElementById('play-triangle').style.borderColor = 'transparent transparent transparent rgb(52, 235, 232)';
     setTimeout(function(){
         var o = context.createOscillator();
         var g = context.createGain();   
@@ -108,6 +109,8 @@ function playback() {
         songArray.shift();
         if(songArray.length > 0){
             playback();
+        } else {
+            document.getElementById('play-triangle').style.borderColor = 'transparent transparent transparent navy';
         }
     }, parseFloat(songArray[0][0]) - time);
 }
