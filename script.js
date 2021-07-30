@@ -46,13 +46,11 @@ function displayNotes(song) {
     for(i=0; i<song.length; i++){
         
         document.getElementById('red-song').innerHTML += '<div class="note" id="note' + i + '"></div>';
-        let currNote = document.getElementById('note' + i);
-        console.log(currNote);
-        let noteWidth = toString(song[i][2] /100);
-        console.log(noteWidth);
-        currNote.style.width = noteWidth;
+        var currNote = document.getElementById('note' + String(i));
+        var noteWidth = song[i][2] * 20;
+        currNote.style.width = String(noteWidth) + 'px';
 
-        let xPos = toString(song[i][0] / 50);
-        currNote.style.left = xPos;
+        var xPos = String(song[i][0] / 20);
+        currNote.style.left = xPos + 'px';
     }
 }
