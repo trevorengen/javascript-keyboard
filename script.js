@@ -8,3 +8,7 @@ function bodyLoad() {
     showValue('duration-val', 'duration');
     showValue('octave-val', 'octave');
 }
+
+function updateText(rangeId, pId) {
+    document.getElementById(pId).innerText = document.getElementById(rangeId).value;
+}

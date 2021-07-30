@@ -28,17 +28,18 @@
                             min="1" max="8" value="4" 
                             onchange="showValue('octave-val', 'octave')"
                             onchange="saveSettings();"
-                            onmousedown="valChange('octave', 'octave-val');">
+                            >
                     <label for="octave">Octave</label>
                 </div>
                 <div class="inner-top">
-                    <input type="checkbox" id="shortcuts" name="shortcuts" 
-                    onchange="keyShortcuts();" checked>
-                    <label for="shortcuts">Enable Shortcuts</label>
+                    <select name="songs" id="savedSongs">
+                        
+                    </select>
                     <button class="small-grey-button" id="recording" onclick="startOrEndRecording();">
                         <span id="red-circle"></span>
                     </button>
-                    <button class="small-grey-button" id="play" onclick="playback();">
+                    <button class="small-grey-button" id="play" 
+                            onclick="playback(savedArrays[document.getElementById('savedSongs').selectedIndex]);">
                         <span id="play-triangle"></span>
                     </button>
                 </div>

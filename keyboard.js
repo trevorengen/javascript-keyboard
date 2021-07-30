@@ -71,14 +71,19 @@ function createNote(note) {
 
 // Playback function for the songArray.
 var time = 0;
-function playback() {
+var tempSaver = [];
+var savedArrays = [];
+// Increments the x-axis array. Original fix was a queue but since it was removing the element
+// the save file was deleted. Variable 'n' is chosen to save typing.
+var n = 0;
+function playback(currSong) {
     document.getElementById('play-triangle').style.borderColor = 'transparent transparent transparent rgb(52, 235, 232)';
     setTimeout(function()/* TODO: Restructure note() so that this can all be deleted. Just need to add parameters to note
                             for all input settings (duration, wave form, octave, and frequency) and just pass them
                             where they are required instead of reading the inputs inside of the function. */{
         var o = context.createOscillator();
         var g = context.createGain();   
-        var curWave = songArray[0][3];
+        var curWave = currSong[n][3];
         if(curWave == 'triangle' || curWave == 'square' || curWave == 'sawtooth' || curWave == 'sine') {
             o.type = curWave;
         } else {
@@ -102,19 +107,20 @@ function playback() {
                     break;
             }
         }
-        o.frequency.value = parseFloat(songArray[0][1]) * parseFloat(songArray[0][4]);
+        o.frequency.value = parseFloat(currSong[n][1]) * parseFloat(currSong[n][4]);
         o.connect(g);
         g.connect(context.destination);
         o.start(0);
-        g.gain.exponentialRampToValueAtTime(.000000001, (context.currentTime + parseFloat(songArray[0][2])));
-        time = parseFloat(songArray[0][0]);
-        songArray.shift();
-        if(songArray.length > 0){
-            playback();
+        g.gain.exponentialRampToValueAtTime(.000000001, (context.currentTime + parseFloat(currSong[n][2])));
+        time = parseFloat(currSong[n][0]);
+        if(n < currSong.length-1){
+            n++;
+            playback(currSong);
         } else {
             document.getElementById('play-triangle').style.borderColor = 'transparent transparent transparent navy';
+            n = 0;
         }
-    }, parseFloat(songArray[0][0]) - time);
+    }, parseFloat(currSong[n][0]) - time);
 }
 
 // Function to begin recording note inputs.
@@ -147,7 +153,11 @@ function startOrEndRecording() {
     } else {
         currentlyRecording = false;
         document.getElementById('red-circle').style.backgroundColor = 'rgb(110, 0, 0)';
-        console.log(songArray);
+        savedArrays.push(songArray);
+        let opt = document.createElement('option');
+        opt.value = savedArrays.length;
+        opt.innerHTML = savedArrays.length;
+        document.getElementById('savedSongs').appendChild(opt);
         return songArray;
     }
 }

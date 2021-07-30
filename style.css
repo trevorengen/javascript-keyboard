@@ -84,9 +84,12 @@ main {
 .val-indicator {
     color: red;
     margin: 8px 2px;
-    background-color: grey;
+    width: 20px;
+    text-align: center;
+    background-color: rgb(77, 77, 77);
     padding: 2px 3px;
     border-radius: 2px;
+    border: 3px inset rgb(59, 59, 59);
 }
 
 .small-grey-button {
