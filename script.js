@@ -54,7 +54,35 @@ function displayNotes(song) {
         var noteWidth = song[i][2] * 20;
         currNote.style.width = String(noteWidth) + 'px';
         var xPos = String(song[i][0] / 20);
-
+        switch(song[i][4]){
+            case octave[0]:
+                currNote.style.backgroundColor = 'rgb(0, 0, 0)';
+                break;
+            case octave[1]:
+                currNote.style.backgroundColor = 'rgb(11, 26, 15)';
+                break;
+            case octave[2]:
+                currNote.style.backgroundColor = 'rgb(19, 46, 26)';
+                break;
+            case octave[3]:
+                currNote.style.backgroundColor = 'rgb(27, 66, 37)';
+                break;
+            case octave[4]:
+                currNote.style.backgroundColor = 'rgb(38, 94, 52)';
+                break;
+            case octave[5]:
+                currNote.style.backgroundColor = 'rgb(47, 120, 65)';
+                break;
+            case octave[6]:
+                currNote.style.backgroundColor = 'rgb(63, 161, 88)';
+                break;
+            case octave[7]:
+                currNote.style.backgroundColor = 'rgb(76, 199, 108)';
+                break;
+            case octave[8]:
+                currNote.style.backgroundColor = 'rgb(77, 255, 124)';
+                break;
+        }
         // yPos is the frequency of the note subtracted by C4. Octaves
         // not taken into account here but a good thing to add in the future.
         // TODO: Add something to handle different octaves (maybe different colors?)
